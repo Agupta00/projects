@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red34\green45\blue53;\red242\green242\blue242;}
+{\*\expandedcolortbl;;\cssrgb\c17647\c23137\c27059;\cssrgb\c96078\c96078\c96078;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+Program from comparative programing class\
+\
+1. The spec.\
+You will use Prolog to write an airline reservation system for the Twilight Zone Airlines. Given a request to travel from one city to another, print out the flight schedule. For each leg of the trip, print out the departure airport, airport, city name, and time. For example:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb3 | ?- fly( lax, sea).\
+depart  LAX  Los Angeles     14:22\
+arrive  SFO  San Francisco   15:29\
+depart  SFO  San Francisco   16:02\
+arrive  SEA  Seattle-Tacoma  17:42\
+true ?\
+yes\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 A database has been provided which lists some airports, their cities, and the North latitudes and West longitudes of the airports.\'a0 A flight schedule has also been provided listing the departure and arrival airports and the departure times.\
+Your program should include a "main" rule that when posed as a query will read two atoms from the standard input and use those as the source and destination airports using the airport codes. The following shows how we should be able to compile and run your program on the unix server. In the following the output is totally faked, just to show the format of input and output. This is the result of running the example prog2.pl uploaded to Files/prog2. The user input is the part typed after the "|:" prompts.\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 \cb3 unix3.lt.ucsc.edu115 :swipl --goal=main -c prog2.pl\
+unix3.lt.ucsc.edu116 :a.out\
+|: nyc.\
+|: lax.\
+depart  NYC  New York City  09:03\cf2 \cb1 \
+\cf2 \cb3 arrive  LAX  Los Angeles    14:22}
