@@ -1,0 +1,14 @@
+Infer error:
+lex.yy.c:21: error: NULL_DEREFERENCE
+  pointer `_args` last assigned on line 20 could be null and is dereferenced at line 21, column 20.
+
+This is wrong because _args will always be allocated with a size of 40 bytes (_numargs is 10 times the sizeof(char ***) which is 4 equals 40). Thus it cannot be null will not lead to a NULL_DEREFERENCE error. 
+
+myshell.c:76: error: NULL_DEREFERENCE
+  pointer `p` last assigned on line 68 could be null and is dereferenced at line 76, column 8.
+
+This is wrong because the derefrence will only happen if p is allocated (it only enters that loop if there is more than one pipe which means p is allocated)
+
+Valgrind:
+
+All errors in valgrind are from memory leakage from lex, none of them are from the code in the C code I wrote.

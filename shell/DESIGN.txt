@@ -1,0 +1,31 @@
+Design document:
+ 
+I use the original lex file provided to parse the commands for one command. (ie ls -l). I build on top of the original lex file to search for a pipe symbol. I have a data structure “individualArguments” which is an array which points to the _args array. If a pipe symbol is found I save the pointer _args in individualArguments and increment the index of pipeCount which is the index in the individualArguments array. 
+
+In myshell.c I break the while(1) loop into three parts. Before any of those parts I initialize variables I will use and call get_line, aka yylex() which will return to me the user input, where each individual command will be some index in individualArguments[i];
+
+1. The first part will run the first command, aka will always run. Prior to running the command I call redirection which will change the file descriptors in the parent if there is any redirection needed to be done. If there is no redirection to be done, the file descriptors do not change.
+
+It will call executeCommand which will either take care of a command of (cd, exit) or if it is not those commands will call launchFunction() which will create a child process and then call execvp. If it is not a valid command it will print the error “not a valid command” else it will execute that function. 
+Also if there is one or more pipes present it creates an array of size 2*pipeNum to hold their file descriptors.
+
+2. The second part takes care of piping processes which are sandwiched between other processes ex. (for the input of A|B|C|D , this part would take care of creating processes B and C). It sets stdin and stdout to the corresponding file descriptors from the p array. 
+
+3. The last part handles the last processes of piping (Processes D) if there is at least one pipe.  It sets stdin and stdout to the corresponding file descriptors from the p array. It also calls redirection function to set stdout to a output file if one is specified, else stdout is outputted to the shell. 
+
+
+Side notes: I change the file descriptors in the parent. 
+freeArgumentMemory calls free on the data held by _args
+signalCatcher catches a cntrl-c signal and exits if it is the child process
+
+launch_my_function has the switch for the two functions (cd,exit) that I handle
+launch_process creates a child processes and calls execvp
+redirection changes the file descriptors in the parent if there is any input or output specified by the user. It uses flag which is an integer array of size 2. The first index (flag[0]) will be 0 if there is not stdin specified by the user or 1 if there is. Index 1 (flag[1]) will be 1 if there is an output specified by the user, 2 if there is an append specified by the user, or 0 if there is no stdout specified by the user. 
+
+My flex file:
+
+If any redirection is found ie > < >> my flex file which takes as a parameter int* flag[2] will set the value at that location a certain number which a switch statement in my shell will interpret in the redirection() function and take care of redirection. The same thing for the filename. When a redirection symbol is found the file name is taken after it and stores the filename in the location provided by char** filename. 
+
+The “;” case is handled by returning to my shell, but will not clearing the buffer. This means next time get_line() is called the next argument after ; will be parsed. 
+
+
