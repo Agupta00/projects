@@ -1,12 +1,12 @@
 #------------------------------------------------------------------------------
-# A Makefile that sets up Driver.java, which also sources Pair.java
+# A Makefile that sets up Chessboard.java, which also sources Point.java
 # Akul Gupta, ID:168664
 #------------------------------------------------------------------------------
-MAINCLASS  = Driver
-JAVASRC    = Driver.java Pair.java
+MAINCLASS  = ChessBoard
+JAVASRC    = $(MAINCLASS).java Point.java
 SOURCES    = README Makefile $(JAVASRC)
-CLASSES    = Driver.class Pair.class
-JARFILE    = Bard.jar
+CLASSES    = $(MAINCLASS).class Point.class
+JARFILE    = NQueens.jar
 
 all: $(JARFILE)
 
