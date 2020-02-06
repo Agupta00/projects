@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/akul/opencv-3.1.0/build/javacv-bin/opencv.jar"/>
+	<classpathentry kind="lib" path="/Users/akul/opencv-3.1.0/build/javacv-bin/javacv.jar"/>
+	<classpathentry kind="lib" path="/Users/akul/opencv-3.1.0/build/javacv-bin/javacpp.jar"/>
+	<classpathentry kind="lib" path="/Users/akul/Downloads/javacv.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/human"/>
+	<classpathentry kind="lib" path="/Users/akul/apache-tomcat/webapps/twilio/WEB-INF/lib/twi.jar"/>
+	<classpathentry kind="lib" path="/Users/akul/apache-tomcat/webapps/twilio/WEB-INF/lib/servlet.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
