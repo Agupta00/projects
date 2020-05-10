@@ -1,5 +1,8 @@
 some projects that I have worked on:
 
+Checkout: https://github.com/Agupta00/invariant
+My most recent project. This is my computational model written in python based on compositional learning.
+
 shellFileSys is a c++ program that implements commands on files/directories, like rm, rm -r, mkdir, cat, ...
 interepreters contains interpreters for a made up langauge, implemented in various programing languages
 prolog is a flight routing program that, given a database of airports/flight times, tells you the optimal flight path
