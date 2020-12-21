@@ -5,6 +5,8 @@ My most recent project. This is my computer vision model written in python based
 
 shellFileSys is a c++ program that implements commands on files/directories, like rm, rm -r, mkdir, cat, ...
 
+client_server is a simple c++ client server implementation with several commands like insert, remove, get...
+
 interepreters contains interpreters for a made up langauge, implemented in various programing languages
 
 flight_connector is a flight routing program that, given a database of airports/flight times, tells you the optimal flight path
